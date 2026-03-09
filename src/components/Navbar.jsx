@@ -1,0 +1,89 @@
+import { LayoutDashboard, Mic, Sparkles } from "lucide-react"
+import { useLocation, useNavigate } from "react-router-dom"
+
+export default function Navbar(){
+
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const items = [
+    { id: "dashboard", label: "Dashboard", icon: LayoutDashboard, path: "/dashboard" },
+    { id: "interview", label: "Live Interview", icon: Mic, path: "/interview" },
+    { id: "scorecard", label: "Scorecard", icon: Sparkles, path: "/scorecard" },
+  ]
+
+  return(
+
+  <header className="sticky top-0 z-20 bg-slate-950/80 backdrop-blur flex justify-between items-center px-8 py-4 border-b border-slate-800/80 shadow-[0_1px_0_0_rgba(15,23,42,0.9)]">
+
+    <div className="flex gap-3 items-center">
+
+      <div className="h-8 w-8 rounded-xl bg-gradient-to-br from-teal-400 to-emerald-500 flex items-center justify-center text-slate-950 text-sm font-bold shadow-lg shadow-teal-500/40 ring-1 ring-teal-300/60 ring-offset-2 ring-offset-slate-950">
+        IA
+      </div>
+
+      <div className="flex items-center gap-2">
+        <h1 className="text-lg font-semibold tracking-tight">InterviewAI</h1>
+        <span className="text-[10px] uppercase tracking-wide bg-teal-500/15 text-teal-300 px-2 py-0.5 rounded-full border border-teal-400/30">
+          Beta
+        </span>
+      </div>
+
+    </div>
+
+    <nav className="flex gap-2 rounded-full bg-slate-900/60 border border-slate-800 px-2 py-1 text-sm text-slate-300 shadow-[0_0_0_1px_rgba(15,23,42,0.7)]">
+
+      {items.map(item => {
+        const isActive = location.pathname === item.path
+        const Icon = item.icon
+        return (
+          <button
+            key={item.id}
+            type="button"
+            onClick={() => navigate(item.path)}
+            className={`group relative inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition-all ${
+              isActive
+                ? "text-teal-100 bg-slate-900 shadow-[0_0_0_1px_rgba(45,212,191,0.25)]"
+                : "text-slate-400 hover:text-slate-100 hover:bg-slate-900/80"
+            }`}
+          >
+            <Icon className="h-3.5 w-3.5 opacity-80 group-hover:opacity-100" />
+            <span>{item.label}</span>
+            {isActive && (
+              <span className="absolute left-0 right-0 -bottom-1 h-0.5 rounded-full bg-gradient-to-r from-teal-400 to-emerald-400" />
+            )}
+          </button>
+        )
+      })}
+
+    </nav>
+
+    <div className="flex items-center gap-4">
+
+      <div className="flex items-center gap-1 text-xs text-emerald-300">
+        <span className="relative flex h-2.5 w-2.5">
+          <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60 animate-ping" />
+          <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
+        </span>
+        <span className="uppercase tracking-wide text-[10px]">
+          Live session
+        </span>
+      </div>
+
+      <div className="flex items-center gap-2">
+        <div className="text-right text-xs">
+          <p className="text-slate-200">Jasmine D.</p>
+          <p className="text-slate-500">Hiring Manager</p>
+        </div>
+        <div className="w-9 h-9 rounded-full bg-gradient-to-br from-slate-700 to-slate-900 border border-slate-600 flex items-center justify-center text-xs font-semibold">
+          JD
+        </div>
+      </div>
+
+    </div>
+
+  </header>
+
+  )
+
+}

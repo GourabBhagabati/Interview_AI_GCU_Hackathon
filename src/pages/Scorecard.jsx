@@ -1,0 +1,255 @@
+import SkillBar from "../components/SkillBar"
+
+const defaultSkills = [
+  { label: "Technical knowledge", value: 88 },
+  { label: "Communication", value: 81 },
+  { label: "Problem solving", value: 86 },
+  { label: "Cultural fit", value: 84 },
+  { label: "Experience match", value: 83 },
+]
+
+const defaultQuestions = [
+  {
+    label: "Q1 · Technical depth",
+    area: "Execution & reliability",
+    score: 9.0,
+    level: "Senior",
+    summary: "Structured, observability‑driven approach with clear rollback strategy.",
+  },
+  {
+    label: "Q2 · System design",
+    area: "System design",
+    score: 8.6,
+    level: "Senior",
+    summary: "Good understanding of blast‑radius control and gradual rollout.",
+  },
+  {
+    label: "Q3 · Communication",
+    area: "Collaboration",
+    score: 8.2,
+    level: "Mid‑Senior",
+    summary: "Clear communication with good trade‑off explanations.",
+  },
+  {
+    label: "Q4 · Culture & ownership",
+    area: "Culture",
+    score: 8.9,
+    level: "Senior",
+    summary: "Demonstrates ownership and bias for action on ambiguous work.",
+  },
+  {
+    label: "Q5 · Experience",
+    area: "Career history",
+    score: 8.1,
+    level: "Mid‑Senior",
+    summary: "Solid trajectory with increasing scope and impact.",
+  },
+]
+
+export default function Scorecard({ analysis }){
+
+return(
+
+<div className="px-10 py-8 grid grid-cols-1 xl:grid-cols-[minmax(0,2.1fr)_minmax(0,1.1fr)] gap-8 items-start">
+
+  <div className="space-y-6">
+
+    <div className="bg-slate-900/70 border border-slate-800 rounded-2xl p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-6 shadow-[0_22px_55px_rgba(15,23,42,0.9)] animate-soft-glow">
+
+      <div className="flex items-start gap-4">
+
+        <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-teal-400 to-emerald-500 flex items-center justify-center text-slate-950 font-semibold shadow-lg shadow-teal-500/40">
+          AS
+        </div>
+
+        <div>
+          <p className="text-xs uppercase tracking-wide text-slate-400">
+            Candidate scorecard
+          </p>
+          <p className="text-lg font-semibold">
+            {analysis?.name ?? "Arjun Sharma"} · {analysis?.role ?? "Senior Backend Engineer"}
+          </p>
+          <p className="text-xs text-slate-400 mt-1">
+            {analysis?.experience ?? "6 yrs experience · Backend / Platform"}
+          </p>
+
+          <div className="flex flex-wrap gap-2 mt-3 text-[11px]">
+            <span className="px-2.5 py-1 rounded-full bg-slate-800 text-slate-200 border border-slate-700">
+              {analysis?.location ?? "Remote"}
+            </span>
+            <span className="px-2.5 py-1 rounded-full bg-teal-500/15 text-teal-200 border border-teal-400/40">
+              Strong hire signal
+            </span>
+            <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-200 border border-emerald-400/40">
+              {analysis?.skills?.[0] ?? "Key skills aligned"}
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div className="flex flex-col items-end gap-3 min-w-[180px]">
+
+        <div className="flex items-center gap-3">
+          <div className="relative">
+            <div className="w-20 h-20 rounded-full border-2 border-teal-400/70 bg-slate-950 flex items-center justify-center shadow-[0_0_60px_rgba(45,212,191,0.4)] animate-slow-pulse">
+              <span className="text-3xl font-semibold text-teal-300">
+                8.7
+              </span>
+            </div>
+            <div className="absolute inset-1 rounded-full border border-teal-500/30 border-dashed opacity-70 animate-orbit" />
+          </div>
+          <div className="text-xs text-slate-400 space-y-1">
+            <p className="uppercase tracking-wide text-[10px]">
+              Overall score
+            </p>
+            <p>Calibrated across 186 similar candidates.</p>
+          </div>
+        </div>
+
+        <span className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium bg-emerald-500/15 text-emerald-200 border border-emerald-400/50">
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+          Strong hire · Ready for onsite panel
+        </span>
+
+      </div>
+
+    </div>
+
+    <div className="bg-slate-900/70 border border-slate-800 rounded-2xl p-6 space-y-4 shadow-[0_18px_45px_rgba(15,23,42,0.85)]">
+
+      <div className="flex items-center justify-between">
+        <p className="text-xs uppercase tracking-wide text-slate-400">
+          Question‑by‑question scoring
+        </p>
+        <span className="text-[10px] text-slate-500">
+          Automatically structured from live interview
+        </span>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-4">
+        {defaultQuestions.map((q) => (
+          <div
+            key={q.label}
+            className="rounded-2xl border border-slate-800 bg-slate-950/70 p-4 flex flex-col gap-3 hover:border-teal-400/40 hover:bg-slate-950/90 transition-colors"
+          >
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <p className="text-xs uppercase tracking-wide text-slate-500 mb-1">
+                  {q.area}
+                </p>
+                <p className="text-sm font-medium text-slate-50">
+                  {q.label}
+                </p>
+              </div>
+              <div className="flex flex-col items-end">
+                <span className="text-xs text-slate-400 mb-1">
+                  Score
+                </span>
+                <span className="px-2.5 py-1 rounded-full bg-slate-900 border border-teal-500/40 text-teal-200 text-sm font-semibold">
+                  {q.score.toFixed(1)}/10
+                </span>
+                <span className="mt-1 text-[10px] text-slate-500">
+                  Calibrated · {q.level}
+                </span>
+              </div>
+            </div>
+            <p className="text-xs text-slate-300">
+              {q.summary}
+            </p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+
+  </div>
+
+  <aside className="space-y-6">
+
+    <div className="bg-slate-900/70 border border-slate-800 rounded-2xl p-6 shadow-[0_18px_45px_rgba(15,23,42,0.85)]">
+
+      <div className="flex items-center justify-between mb-4">
+        <p className="text-xs uppercase tracking-wide text-slate-400">
+          Skill breakdown
+        </p>
+        <span className="text-xs text-slate-300">
+          Role profile · L5/L6
+        </span>
+      </div>
+
+      <div className="space-y-1">
+        {defaultSkills.map(skill => (
+          <SkillBar key={skill.label} label={skill.label} value={skill.value}/>
+        ))}
+      </div>
+
+    </div>
+
+    <div className="bg-slate-900/70 border border-slate-800 rounded-2xl p-6 space-y-4 shadow-[0_18px_45px_rgba(15,23,42,0.85)]">
+
+      <div className="flex items-center justify-between">
+        <p className="text-xs uppercase tracking-wide text-slate-400">
+          Recommendation
+        </p>
+        <span className="text-[10px] text-slate-500">
+          Draft generated by InterviewAI
+        </span>
+      </div>
+
+      <div className="rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-4 py-3 text-xs text-emerald-100 space-y-1">
+        <p className="font-medium text-emerald-200">
+          Move to onsite loop with focus on cross‑team collaboration and long‑term ownership.
+        </p>
+        <p>
+          Strong signal on problem solving, architecture, and partnering with design.
+          Slightly less exposure to extremely large codebases can be deepened post‑hire.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-3 gap-3 text-[11px]">
+        <div className="rounded-xl border border-slate-800 bg-slate-950/70 p-3">
+          <p className="text-slate-400 mb-1">
+            Interviewer confidence
+          </p>
+          <p className="text-lg font-semibold text-emerald-300">
+            92%
+          </p>
+          <p className="text-slate-500 mt-1">
+            Based on rubric alignment and calibration.
+          </p>
+        </div>
+        <div className="rounded-xl border border-slate-800 bg-slate-950/70 p-3">
+          <p className="text-slate-400 mb-1">
+            Role fit
+          </p>
+          <p className="text-lg font-semibold text-teal-300">
+            88%
+          </p>
+          <p className="text-slate-500 mt-1">
+            Maps cleanly to current frontend track.
+          </p>
+        </div>
+        <div className="rounded-xl border border-slate-800 bg-slate-950/70 p-3">
+          <p className="text-slate-400 mb-1">
+            Team risk
+          </p>
+          <p className="text-lg font-semibold text-amber-300">
+            Low‑Mod
+          </p>
+          <p className="text-slate-500 mt-1">
+            Mostly around working in higher‑scale orgs.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </aside>
+
+</div>
+
+)
+
+}
+
