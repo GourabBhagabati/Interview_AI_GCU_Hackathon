@@ -1,16 +1,136 @@
-# React + Vite
+# InterviewAI – Virtual HR Agent 🤖
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+InterviewAI is an **AI-powered virtual HR assistant** designed to automate the first stage of recruitment.
+The system analyzes candidate resumes, compares them with a job description, generates interview questions, and conducts an AI-assisted screening interview to help recruiters identify the best candidates quickly.
 
-Currently, two official plugins are available:
+This project was built for the **GCU Hackathon** to demonstrate how AI can improve and streamline the hiring process.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Problem Statement
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Recruiters at growing startups receive **hundreds of resumes for a single job opening**.
+Manually screening each one is:
 
-## Expanding the ESLint configuration
+* Time-consuming
+* Inconsistent
+* Prone to unconscious bias
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+InterviewAI automates the **first stage of hiring**, from resume analysis to conducting an AI-guided screening interview, allowing recruiters to focus only on the **top candidates**.
+
+---
+
+## 🧠 Key Features
+
+* 📄 **Resume Upload & Analysis**
+  Upload a candidate's resume and automatically extract skills, experience, and relevant information.
+
+* 📑 **Job Description Matching**
+  Compare resumes with a job description to determine how well a candidate fits the role.
+
+* 🤖 **AI Resume Evaluation**
+  Generate insights such as:
+
+  * Skill breakdown
+  * Experience match
+  * Communication potential
+  * Problem-solving capability
+
+* ❓ **AI-Generated Interview Questions**
+  Personalized questions based on the candidate's resume and the job requirements.
+
+* 🎤 **AI-Guided Interview Interface**
+  Simulated AI interviewer that asks questions and tracks interview progress.
+
+* 📊 **Candidate Scorecard**
+  A final evaluation dashboard showing:
+
+  * Overall candidate score
+  * Skill breakdown
+  * Interview performance
+  * Hiring recommendation
+
+---
+
+## 🖥️ Application Flow
+
+1. Recruiter enters a **Job Description**
+2. Recruiter uploads a **Candidate Resume**
+3. System performs **AI Resume Analysis**
+4. AI generates **personalized interview questions**
+5. Candidate goes through an **AI-guided interview**
+6. System produces a **final candidate scorecard**
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* **React.js**
+* **Vite**
+* **Tailwind CSS**
+
+### UI & Design
+
+* Modern **dark SaaS dashboard UI**
+* Responsive layout
+* Component-based architecture
+
+### Development Tools
+
+* **Node.js**
+* **npm**
+* **Git & GitHub**
+
+---
+
+## 📦 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/GourabBhagabati/Interview_AI_GCU_Hackathon.git
+```
+
+Navigate into the project:
+
+```bash
+cd interview-ai-dashboard
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+The app will be available at:
+
+```
+http://localhost:5173
+```
+
+---
+
+## 🎯 Future Improvements
+
+* Real AI resume parsing using NLP models
+* Voice-based interview interaction
+* Automatic speech analysis
+* Integration with ATS (Applicant Tracking Systems)
+* Real-time AI candidate ranking
+
+---
+
+## 👨‍💻 Author
+
+**Gourab Bhagabati**
+
+Built for the **GCU Hackathon** to demonstrate how AI can transform the hiring process.
