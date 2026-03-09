@@ -87,13 +87,13 @@ InterviewAI automates the **first stage of hiring**, from resume analysis to con
 ## Demo Screenshots
 
 ### Dashboard
-![Dashboard](interview-ai-dashboard/screenshots/Dashboard.png)
+![Dashboard](C:\programming\GCU_Hackathon\interview-ai-dashboard\screenshorts\Dashboard.png)
 
 ### Live Interview
-![Live Interview](interview-ai-dashboard/screenshots/Live_interview.png)
+![Live Interview](C:\programming\GCU_Hackathon\interview-ai-dashboard\screenshorts\Live_interview.png)
 
 ### Candidate Scorecard
-![Scorecard](interview-ai-dashboard/screenshots/scorecard.png)
+![Scorecard](C:\programming\GCU_Hackathon\interview-ai-dashboard\screenshorts\scorecard.png)
 
 ## 📦 Installation
 
